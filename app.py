@@ -24,6 +24,7 @@ JOBS = [
         'id': 3,
         'title': 'Data Analyst',
         'location': 'Remote',
+        'salary': '$100 000'
         
     }
        
