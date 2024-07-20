@@ -1,6 +1,7 @@
+python-3.10.11
 Flask
 gunicorn
 sqlalchemy 
 dotenv 
 os
-urllib
+urllib.parse
