@@ -3,3 +3,4 @@ gunicorn
 sqlalchemy 
 dotenv 
 os
+urllib
