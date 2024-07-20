@@ -1,6 +1,5 @@
-Flask
-gunicorn
-sqlalchemy 
-dotenv 
-os
-urllib.parse
+Flask  
+gunicorn  
+sqlalchemy  
+python-dotenv  
+pymysql  
