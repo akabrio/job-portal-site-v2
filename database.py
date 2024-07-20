@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 import os  
   
 # Load environment variables from .env file  
-load_dotenv("credentials.env")  
+load_dotenv(".env")  
   
 # Connection information  
 server_name = os.getenv("server_name")  
