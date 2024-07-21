@@ -1,3 +1,5 @@
+#Go into database and get the information based on the information provided in the url and returns json
+
 from sqlalchemy import create_engine, text  
 from urllib.parse import quote_plus  
 from dotenv import load_dotenv  
@@ -28,3 +30,17 @@ def load_jobs_from_db():
         for row in result.all():  
             jobs.append(dict(row))  
         return jobs  
+    
+#we get the value of id from the url
+def load_job_from_db(id):
+    with engine.connect() as conn:
+        result=conn.execute(
+            text("SELECT * FROM jobs WHERE id = :val"),
+            val=id
+        )
+    
+        rows = result.all() 
+        if len(rows) == 0:
+             return None
+        else:
+            return dict(rows[0])
