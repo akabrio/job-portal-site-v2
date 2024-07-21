@@ -2,8 +2,8 @@
 #route is part of the url after the domain name
 #domainName/route
 
-from flask import Flask, render_template,jsonify
-from database import load_jobs_from_db, load_job_from_db
+from flask import Flask, render_template,jsonify, request
+from database import load_jobs_from_db, load_job_from_db,add_application_to_db
 
 
 app = Flask(__name__)  
@@ -24,9 +24,9 @@ def list_jobs():
     
 
 #create dynamic route (id will be recieved as a parameter)
-@app.route("/job/<id>")
-def show_job(id):
-        job = load_job_from_db(id)
+@app.route("/job/<ID>")
+def show_job(ID):
+        job = load_job_from_db(ID)
         #return jsonify(job)
          #render template
         #inside the jobpage template  any reference to job it will get the value from load_job_from_db()
@@ -37,8 +37,19 @@ def show_job(id):
                                job=job)
         
 
-       
-
+      
+@app.route("/job/<ID>/apply", methods=['post'])
+def apply_to_job(ID):
+  data = request.form
+  job = load_job_from_db(ID)
+  add_application_to_db(ID, data)
+  return render_template('application_submitted.html', 
+                         application=data,
+                         job=job)
+# store this in the DB
+# send an email
+# display an acknowdgement
+ 
 if __name__ == "__main__":  
     app.run(debug=True)  
 
