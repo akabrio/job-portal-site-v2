@@ -2,18 +2,18 @@
 <form action="/job/{{job['ID']}}/apply" method=post>
     <div class="mb-2">
     <label>Full Name </label><br>
-    <input type ="text" name="full_name" placeholder="Enter Fullname"> 
+    <input type ="text" required name="full_name" placeholder="Enter Fullname"> 
     </div>
 
             
     <div class="mb-2">
      <label>Email </label><br>
-    <input type ="text" name="email" placeholder="akabrio@gmail.com"> 
+    <input type ="email" required name="email" placeholder="akabrio@gmail.com"> 
     </div>
 
     <div class="mb-2">
         <label>LinkedIn URL </label><br>
-        <input type ="text" name="LinkedIn_url" placeholder="https://linked/in/akabrio"> 
+        <input type ="url" name="LinkedIn_url" placeholder="https://linked/in/akabrio"> 
     </div>
 
     <div  class="mb-2">
@@ -27,7 +27,7 @@
 
     <div class="mb-2">
         <label>Resume URL </label><br>
-        <input type ="text" name="resume_url"> 
+        <input type ="url" name="resume_url"> 
     </div>
 
        <div>

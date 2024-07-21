@@ -36,8 +36,11 @@ def show_job(ID):
         return render_template('jobpage.html',
                                job=job)
         
-
-      
+@app.route("/api/job/<ID>/")
+def show_job_json(ID):
+   job = load_job_from_db(ID)
+   return jsonify(job)
+ 
 @app.route("/job/<ID>/apply", methods=['post'])
 def apply_to_job(ID):
   data = request.form
